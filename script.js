@@ -130,7 +130,7 @@ class ScrollAnimator {
         });
     }
     
-    handleFormSubmission() {
+        handleFormSubmission() {
         const form = document.querySelector('.contact-form form');
         if (form) {
             form.addEventListener('submit', (e) => {
@@ -139,24 +139,38 @@ class ScrollAnimator {
                 const submitButton = form.querySelector('.submit-button');
                 const originalText = submitButton.textContent;
                 
-                // Simulate form submission
-                submitButton.textContent = 'Enviando...';
+                // 1. Captura los datos ingresados por el usuario
+                const nombre = document.getElementById('ws-nombre').value;
+                const email = document.getElementById('ws-email').value;
+                const telefono = document.getElementById('ws-telefono').value || 'No proporcionado';
+                const mensaje = document.getElementById('ws-mensaje').value;
+
+
+                const textoMensaje = `Hola, quiero hacer un pedido desde el sitio web.%0A%0A` +
+                                     `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
+                                     `*Email:* ${encodeURIComponent(email)}%0A` +
+                                     `*Teléfono:* ${encodeURIComponent(telefono)}%0A%0A` +
+                                     `*Mensaje:* ${encodeURIComponent(mensaje)}`;
+
+                const whatsappNumber = '573243076563';
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${textoMensaje}`;
+
+                submitButton.textContent = 'Abriendo WhatsApp...';
                 submitButton.disabled = true;
-                
+                submitButton.style.background = '#25D366';
+
+                window.open(whatsappUrl, '_blank');
+
                 setTimeout(() => {
-                    submitButton.textContent = '¡Mensaje Enviado!';
-                    submitButton.style.background = '#28a745';
-                    
-                    setTimeout(() => {
-                        submitButton.textContent = originalText;
-                        submitButton.disabled = false;
-                        submitButton.style.background = '';
-                        form.reset();
-                    }, 2000);
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    submitButton.style.background = '';
+                    form.reset();
                 }, 1500);
             });
         }
     }
+
     
     animateNumbers() {
         const stats = document.querySelectorAll('.stat-number');
