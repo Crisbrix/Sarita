@@ -1057,10 +1057,28 @@ section {
     }
     
     .values-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
     
     .about-img {
         height: 300px;
+    }
+
+    /* Ajustes móviles para la sección de valores */
+    .value-item {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .value-item i {
+        font-size: 1.4rem;
+    }
+
+    .value-item strong {
+        font-size: 1rem;
+    }
+
+    .value-item p {
+        font-size: 0.9rem;
     }
 }
