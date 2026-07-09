@@ -110,3 +110,13 @@ section {
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 42px !important;
+        height: 42px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        font-size: 1rem;
+    }
+}
