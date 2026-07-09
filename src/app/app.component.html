@@ -7,12 +7,12 @@
 <app-contact></app-contact>
 <app-footer></app-footer>
 
-<div class="cart-floating" (click)="toggleCart()">
-    <i class="fas fa-shopping-cart"></i>
-    @if (cartService.totalItems() > 0) {
+@if (!cartOpen && cartService.totalItems() > 0) {
+    <div class="cart-floating" (click)="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
         <span class="cart-floating-badge">{{ cartService.totalItems() }}</span>
-    }
-</div>
+    </div>
+}
 
 @if (cartOpen && cartService.items().length > 0) {
     <div class="cart-overlay" (click)="closeCart()"></div>
@@ -38,5 +38,11 @@
                 <i class="fab fa-whatsapp"></i> Enviar Pedido a WhatsApp
             </button>
         </div>
+    </div>
+}
+
+@if (toastVisible) {
+    <div class="cart-toast">
+        <i class="fas fa-check-circle"></i> {{ toastMessage }}
     </div>
 }

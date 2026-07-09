@@ -12,6 +12,7 @@ export class CartService {
   private itemsSignal = signal<CartItem[]>([]);
   readonly items = this.itemsSignal.asReadonly();
   readonly totalItems = computed(() => this.itemsSignal().reduce((sum, item) => sum + item.quantity, 0));
+  readonly lastAdded = signal<string | null>(null);
 
   addItem(name: string) {
     this.itemsSignal.update(items => {
@@ -21,6 +22,7 @@ export class CartService {
       }
       return [...items, { name, quantity: 1 }];
     });
+    this.lastAdded.set(name);
   }
 
   removeItem(name: string) {

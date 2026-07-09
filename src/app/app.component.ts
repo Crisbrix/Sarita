@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, inject } from '@angular/core';
+import { Component, AfterViewInit, inject, effect } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { FeaturesComponent } from './components/features/features.component';
@@ -22,8 +22,18 @@ import { CartService } from './services/cart.service';
 export class AppComponent implements AfterViewInit {
   cartService = inject(CartService);
   cartOpen = false;
+  toastVisible = false;
+  toastMessage = '';
+  private toastTimeout: any;
 
-  constructor(private animationService: AnimationService) {}
+  constructor(private animationService: AnimationService) {
+    effect(() => {
+      const name = this.cartService.lastAdded();
+      if (name) {
+        this.showToast(`¡${name} agregado al carrito!`);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.animationService.initAnimations();
@@ -35,5 +45,12 @@ export class AppComponent implements AfterViewInit {
 
   closeCart() {
     this.cartOpen = false;
+  }
+
+  showToast(message: string) {
+    this.toastMessage = message;
+    this.toastVisible = true;
+    if (this.toastTimeout) clearTimeout(this.toastTimeout);
+    this.toastTimeout = setTimeout(() => this.toastVisible = false, 2000);
   }
 }
