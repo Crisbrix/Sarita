@@ -1,0 +1,42 @@
+<app-header></app-header>
+<app-hero></app-hero>
+<app-features></app-features>
+<app-products></app-products>
+<app-about></app-about>
+<app-testimonials></app-testimonials>
+<app-contact></app-contact>
+<app-footer></app-footer>
+
+<div class="cart-floating" (click)="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    @if (cartService.totalItems() > 0) {
+        <span class="cart-floating-badge">{{ cartService.totalItems() }}</span>
+    }
+</div>
+
+@if (cartOpen && cartService.items().length > 0) {
+    <div class="cart-overlay" (click)="closeCart()"></div>
+    <div class="cart-modal">
+        <div class="cart-modal-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-modal-close" (click)="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-modal-items">
+            @for (item of cartService.items(); track item.name) {
+                <div class="cart-modal-item">
+                    <span class="cart-modal-item-name">{{ item.name }}</span>
+                    <div class="cart-modal-item-controls">
+                        <button class="qty-btn" (click)="cartService.removeItem(item.name)">-</button>
+                        <span class="cart-modal-item-qty">{{ item.quantity }}</span>
+                        <button class="qty-btn" (click)="cartService.addItem(item.name)">+</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="cart-modal-footer">
+            <button class="cart-whatsapp-btn" (click)="cartService.sendToWhatsApp(); closeCart()">
+                <i class="fab fa-whatsapp"></i> Enviar Pedido a WhatsApp
+            </button>
+        </div>
+    </div>
+}
