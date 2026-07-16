@@ -114,4 +114,38 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+    .contact-item h3 {
+        font-size: 1.1rem;
+    }
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        gap: 0.8rem;
+    }
+    .contact-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    .contact-item h3 {
+        font-size: 1rem;
+    }
+    .contact-item p {
+        font-size: 0.85rem;
+        word-break: break-word;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    .submit-button {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
 }

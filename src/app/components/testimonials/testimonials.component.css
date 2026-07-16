@@ -11,6 +11,8 @@
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(123, 44, 191, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .testimonial-card:hover {
@@ -48,14 +50,49 @@
     justify-content: center;
     color: white;
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .author-info h4 {
     color: var(--primary-purple);
     font-weight: 600;
+    word-break: break-word;
 }
 
 .author-info span {
     color: var(--dark-gray);
     font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    .testimonial-content p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-card {
+        padding: 1rem;
+    }
+    .testimonial-content p {
+        font-size: 0.9rem;
+    }
+    .author-info h4 {
+        font-size: 0.95rem;
+    }
+    .author-info span {
+        font-size: 0.8rem;
+    }
+    .author-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
 }

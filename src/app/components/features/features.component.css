@@ -9,6 +9,8 @@
     text-align: center;
     padding: 2rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .feature-card:hover {
@@ -43,4 +45,43 @@
 .feature-card p {
     color: var(--dark-gray);
     line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+    }
+    .feature-card {
+        padding: 1.5rem;
+    }
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .feature-card {
+        padding: 1rem;
+    }
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+    }
 }

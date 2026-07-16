@@ -22,6 +22,8 @@
     font-weight: 700;
     color: var(--primary-purple);
     margin-bottom: 1.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .about-text p {
@@ -132,11 +134,17 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    .about-text h3 {
+        font-size: 1.2rem;
+    }
     .about-img {
         height: 300px;
     }
     .values-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .value-item {
         padding: 1rem;
@@ -145,4 +153,25 @@
     .value-item i { font-size: 1.4rem; }
     .value-item strong { font-size: 1rem; }
     .value-item p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .about-text h2 {
+        font-size: 1.4rem;
+    }
+    .about-text h3 {
+        font-size: 1.1rem;
+    }
+    .about-text p, .principles li, .policies li, .objectives li {
+        font-size: 0.9rem;
+    }
+    .about-img {
+        height: 220px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    .value-item {
+        padding: 0.8rem;
+    }
 }

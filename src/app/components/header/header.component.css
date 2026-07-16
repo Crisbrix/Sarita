@@ -99,6 +99,12 @@
     .navbar {
         padding: 0.8rem 1rem;
     }
+    .nav-brand {
+        font-size: 1.2rem;
+    }
+    .nav-brand i {
+        font-size: 1.3rem;
+    }
     .hamburger {
         display: flex;
     }
@@ -127,5 +133,25 @@
         display: block;
         padding: 1rem 0;
         font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 1rem;
+    }
+    .nav-brand i {
+        font-size: 1.1rem;
+    }
+    .navbar {
+        padding: 0.6rem 0.8rem;
+    }
+    .nav-menu {
+        width: 85%;
+        padding: 4.5rem 1.5rem 1.5rem;
+    }
+    .nav-menu a {
+        font-size: 0.95rem;
+        padding: 0.8rem 0;
     }
 }

@@ -134,7 +134,28 @@
 }
 
 @media (max-width: 480px) {
+    .carousel {
+        margin: 2rem auto 0;
+    }
     .carousel-viewport {
-        height: 220px;
+        height: 180px;
+        border-radius: 10px;
+    }
+    .carousel-caption {
+        padding: 1rem;
+    }
+    .carousel-caption h3 {
+        font-size: 0.85rem;
+    }
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+    .carousel-prev { left: -5px; }
+    .carousel-next { right: -5px; }
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
     }
 }
