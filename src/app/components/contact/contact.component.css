@@ -10,14 +10,11 @@
 }
 
 .contact-info {
-    opacity: 0;
-    transform: translateX(-50px);
     transition: all 0.6s ease;
 }
 
 .contact-info.aos-animate {
-    opacity: 1;
-    transform: translateX(0);
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .contact-item {
@@ -50,14 +47,11 @@
 }
 
 .contact-form {
-    opacity: 0;
-    transform: translateX(50px);
     transition: all 0.6s ease;
 }
 
 .contact-form.aos-animate {
-    opacity: 1;
-    transform: translateX(0);
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .contact-form form {

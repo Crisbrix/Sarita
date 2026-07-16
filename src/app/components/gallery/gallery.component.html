@@ -1,0 +1,29 @@
+<section class="gallery">
+    <div class="container">
+        <h2 class="section-title">Galería de Postres</h2>
+        <p class="section-subtitle">Mira algunas de nuestras creaciones más especiales. Cada postre es único y hecho con amor.</p>
+        <div class="carousel">
+            <button class="carousel-btn carousel-prev" (click)="prev()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-viewport">
+                @for (img of images; track img.src; let i = $index) {
+                    <div class="carousel-slide" [class.active]="currentIndex() === i">
+                        <img [src]="img.src" [alt]="img.alt">
+                        <div class="carousel-caption">
+                            <h3>{{ img.label }}</h3>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="carousel-btn carousel-next" (click)="next()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-dots">
+            @for (img of images; track img.src; let i = $index) {
+                <button class="carousel-dot" [class.active]="currentIndex() === i" (click)="goTo(i)"></button>
+            }
+        </div>
+    </div>
+</section>

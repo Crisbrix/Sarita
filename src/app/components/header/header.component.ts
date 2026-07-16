@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  mobileMenuOpen = signal(false);
+
+  toggleMenu() {
+    this.mobileMenuOpen.update(v => !v);
+  }
+
+  closeMenu() {
+    this.mobileMenuOpen.set(false);
+  }
+}

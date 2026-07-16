@@ -4,12 +4,16 @@
             <i class="fas fa-birthday-cake"></i>
             <span>Miel y Vainilla</span>
         </div>
-        <ul class="nav-menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#comunidad">Comunidad</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+        <button class="hamburger" (click)="toggleMenu()" [class.open]="mobileMenuOpen()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" [class.open]="mobileMenuOpen()">
+            <li><a href="#inicio" (click)="closeMenu()">Inicio</a></li>
+            <li><a href="#productos" (click)="closeMenu()">Productos</a></li>
+            <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
+            <li><a href="#contacto" (click)="closeMenu()">Contacto</a></li>
         </ul>
     </nav>
 </header>

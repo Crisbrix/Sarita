@@ -1,6 +1,7 @@
 <app-header></app-header>
 <app-hero></app-hero>
 <app-features></app-features>
+<app-gallery></app-gallery>
 <app-products></app-products>
 <app-about></app-about>
 <app-testimonials></app-testimonials>
@@ -24,11 +25,12 @@
         <div class="cart-modal-items">
             @for (item of cartService.items(); track item.name) {
                 <div class="cart-modal-item">
+                    <img [src]="item.image" [alt]="item.name" class="cart-modal-item-img">
                     <span class="cart-modal-item-name">{{ item.name }}</span>
                     <div class="cart-modal-item-controls">
                         <button class="qty-btn" (click)="cartService.removeItem(item.name)">-</button>
                         <span class="cart-modal-item-qty">{{ item.quantity }}</span>
-                        <button class="qty-btn" (click)="cartService.addItem(item.name)">+</button>
+                        <button class="qty-btn" (click)="cartService.addItem(item.name, item.image)">+</button>
                     </div>
                 </div>
             }

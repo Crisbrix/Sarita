@@ -7,6 +7,7 @@ import { AboutComponent } from './components/about/about.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 import { AnimationService } from './services/animation.service';
 import { CartService } from './services/cart.service';
 
@@ -14,7 +15,7 @@ import { CartService } from './services/cart.service';
   selector: 'app-root',
   imports: [
     HeaderComponent, HeroComponent, FeaturesComponent, ProductsComponent,
-    AboutComponent, TestimonialsComponent, ContactComponent, FooterComponent
+    AboutComponent, TestimonialsComponent, GalleryComponent, ContactComponent, FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

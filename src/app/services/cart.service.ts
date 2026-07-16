@@ -2,6 +2,7 @@ import { Injectable, signal, computed } from '@angular/core';
 
 export interface CartItem {
   name: string;
+  image: string;
   quantity: number;
 }
 
@@ -14,13 +15,13 @@ export class CartService {
   readonly totalItems = computed(() => this.itemsSignal().reduce((sum, item) => sum + item.quantity, 0));
   readonly lastAdded = signal<string | null>(null);
 
-  addItem(name: string) {
+  addItem(name: string, image: string) {
     this.itemsSignal.update(items => {
       const existing = items.find(i => i.name === name);
       if (existing) {
         return items.map(i => i.name === name ? { ...i, quantity: i.quantity + 1 } : i);
       }
-      return [...items, { name, quantity: 1 }];
+      return [...items, { name, image, quantity: 1 }];
     });
     this.lastAdded.set(name);
   }
